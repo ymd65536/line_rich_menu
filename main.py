@@ -58,5 +58,7 @@ if __name__ == '__main__':
 
     # リッチメニューの設定をチェック
     applied_url = "https://api.line.me/v2/bot/user/%s/richmenu" % LINE_USER_ID
-    requests.get(applied_url, headers=headers, verify=True)
+    res = requests.get(applied_url, headers=headers, verify=True).json()
 
+    if not res["richMenuId"] == "":
+        print("リッチメニューが設定されています。")
