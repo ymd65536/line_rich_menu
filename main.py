@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from linebot import LineBotApi
 from linebot.models import RichMenu
 from linebot.models import RichMenuSize
@@ -6,6 +7,7 @@ from linebot.models import RichMenuArea
 from linebot.models import RichMenuBounds
 from linebot.models import MessageAction
 
+load_dotenv()
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 line_bot = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 
@@ -32,3 +34,4 @@ if __name__ == '__main__':
         line_bot.set_rich_menu_image(rich_menu_id, "image/jpeg", f)
 
     line_bot.set_default_rich_menu(rich_menu_id)
+    print('Done!')
